@@ -1,9 +1,9 @@
 {
-	"WLAN_SSID": "",
-	"WLAN_PW": "",
+	"WLAN_SSID": "ATT806",
+	"WLAN_PW": "3463717338",
     "Time_Server": "pool.ntp.org",
     "Server_IP": "192.168.1.69",
     "Server_Port": "1024",
     "uuid" : "1",
-    "Granularity" : "10"
+    "Granularity" : "1"
 }

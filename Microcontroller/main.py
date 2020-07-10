@@ -1,7 +1,7 @@
 import uos as os
 import utime as time
 import ujson as json
-import network 
+import network
 import machine
 from dht import DHT11
 from ubinascii import hexlify
@@ -58,7 +58,7 @@ def DHTlog():
     #set up a DHT11 sensor on GPIO pin 4
     d = DHT11(machine.Pin(4))
     d.measure()
-    temp = float('{:.1f}'.format(d.temperature()))
+    temp = float('{:.1f}'.format(d.temperature() ) * 1.8 + 32))  #convert to Fahrenheit
     humid = float('{:.1f}'.format(d.humidity()))
     #return a dictionary of (temp. humidity)
     return {'temp' : temp, 'humid' : humid}
@@ -79,8 +79,6 @@ def transmit():
     event = eventlog()
     s.sendall(json.dumps(event))
 
-for i in range(100):
+while True:
     transmit()
-    time.sleep((int)config_file['Granularity'])
-
-s.close()
+    time.sleep(int(config_file['Granularity']))
