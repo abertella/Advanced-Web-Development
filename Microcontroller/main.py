@@ -43,7 +43,7 @@ def gettime():
         s.close()
     val = struct.unpack("!I", msg[40:44])[0]
     return val - NTP_DELTA
-
+    
 def settime():
     t = gettime()
     tm = time.localtime(t)
@@ -52,21 +52,19 @@ def settime():
 def timestamp():
     t = time.localtime()
     return '{}-{}-{}T{}:{}:{}Z'.format(t[0], t[1], t[2], t[3], t[4], t[5])
-
-
+    
 def DHTlog():
     #set up a DHT11 sensor on GPIO pin 4
     d = DHT11(machine.Pin(4))
     d.measure()
-    temp = float('{:.1f}'.format(d.temperature() ) * 1.8 + 32))  #convert to Fahrenheit
+    temp = float('{:.1f}'.format(d.temperature() * 1.8 + 32))
     humid = float('{:.1f}'.format(d.humidity()))
-    #return a dictionary of (temp. humidity)
     return {'temp' : temp, 'humid' : humid}
-
+    
 def eventlog():
     d = DHTlog()
     hn = hexlify(machine.unique_id(), ':').decode()
-    return {'id' : config_file['uuid'], 'event' : {'humdity' : d['humid'], 'temperature' : d['temp'], 'hostname' : hn, 'timestamp' : timestamp()}}
+    return {'id' : config_file['uuid'], 'humdity' : d['humid'], 'temperature' : d['temp'], 'hostname' : hn, 'timestamp' : timestamp()}
 
 #get the time from a time server
 settime()
