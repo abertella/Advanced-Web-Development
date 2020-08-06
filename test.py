@@ -1,13 +1,13 @@
 import pymongo
-import json
 import pprint
-import os
+from bson.json_util import dumps
 
 client = pymongo.MongoClient('mongodb://localhost:27017/')
 db = client['mydatabase']
 coll = db['events']
 
-db.coll.delete_many({'id': '1'})
+f = open('output.json', 'w')
 
 for x in coll.find():
-    pprint.pprint(x)
+    f.write(dumps(x))
+    f.write(', ')
