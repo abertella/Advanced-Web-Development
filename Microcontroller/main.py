@@ -51,7 +51,7 @@ def settime():
 
 def timestamp():
     t = time.localtime()
-    return '{}-{}-{}T{}:{}:{}Z'.format(t[0], t[1], t[2], t[3], t[4], t[5])
+    return '{:0d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}Z'.format(t[0], t[1], t[2], t[3], t[4], t[5])
     
 def DHTlog():
     #set up a DHT11 sensor on GPIO pin 4
