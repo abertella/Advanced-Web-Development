@@ -7,6 +7,4 @@ People involved include:
 * Tyler Woodby
 
 
-The purpose for this project is to (Insert Purpose).
-
-(Insert Summary)
+This project impliments a simple IOT event tracking device that could be useful for nest-like applications.
