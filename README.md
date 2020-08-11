@@ -7,4 +7,6 @@ People involved include:
 * Tyler Woodby
 
 
-This project impliments a simple IOT event tracking device that could be useful for nest-like applications.
+This project impliments a simple IOT event tracking device that could be useful for Nest-like applications.
+
+For testing use login abert password test
